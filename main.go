@@ -11,7 +11,7 @@ func dev(a, b float64) float64 {
 }
 
 func main() {
-	fmt.Println("Hello worldkkkk")
+	fmt.Println("Hello world")
 	fmt.Println(sum(1, 2))
 	fmt.Println(dev(1, 2))
 }
