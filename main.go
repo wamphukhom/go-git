@@ -1,17 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
 
-func sum(a, b int) int {
-	return a + b
-}
+	"github.com/wamphukhom/go-basic/config"
+)
 
-func dev(a, b float64) float64 {
-	return a / b
+func envPath() string {
+	if len(os.Args) == 1 {
+		return ".env"
+	} else {
+		return os.Args[1]
+	}
 }
 
 func main() {
-	fmt.Println("Hello world 123")
-	fmt.Println(sum(1, 2))
-	fmt.Println(dev(1, 2))
+	cfg := config.LoadConfig(envPath())
+	fmt.Println(cfg.App())
+	fmt.Println(cfg.Db())
+	fmt.Println(cfg.Jwt())
 }
